@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZakariaJS56</title>
+    <style>
+        *{
+            font-family: sans-serif;
+        }
+        #app{
+            width: 100%;
+            max-width: 100%;
+        }
+        #app p{
+            width: 100%;
+            padding: 14px;
+            background-color: rgb(246, 68, 68);
+            color: white;
+            text-align: center;
+            font-size: 22px;
+        }
+        #app textarea{
+            width: 100%;
+            border: 1px solid rgb(254, 75, 75);
+            outline: none;
+            border-radius: 14px;
+            min-height: 140px;
+        }
+        #app select{
+            width: 100%;
+            padding: 14px;
+            border-radius: 14px;
+            margin-bottom: 14px;
+        }
+    </style>
+</head>
+<body>
+    <main id="app">
+        <p>Text - Le Text</p>
+        <select id="select">
+            <option value="encode">Coding the Text</option>
+            <option value="decode">Decoding the Text</option>
+        </select>
+        <textarea id="text"></textarea>
+        <p>Resulte</p>
+        <textarea id="result">
+
+        </textarea>
+    </main>
+    <script>
+        // let text = "ZakariaJS56";
+        // let encode_text = btoa(text);
+        // let decode_text =atob(encode_text);
+        // document.write("This is the Code Of: " + encode_text + "<br>");
+        // document.write("This is the EnCode Of: " + decode_text);
+        let textarea = document.getElementById("text");
+        let result = document.getElementById("result");
+        let select = document.getElementById("select");
+        textarea.addEventListener("input",()=>{
+            make_result();
+        })
+        select.addEventListener("change",()=>{
+            make_result();
+        })
+        function make_result(){
+            if(select.value == "decode"){
+                result.value = atob(textarea.value);
+            }else{
+                result.value = btoa(textarea.value);
+            }
+        }
+    </script>
+</body>
+</html>
